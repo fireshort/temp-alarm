@@ -1,0 +1,105 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="fill_parent"
+              android:layout_height="fill_parent"
+              android:orientation="vertical"
+        >
+
+    <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+        <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#f0eff4"
+                android:layout_marginTop="10dp"
+                >
+            <TextView
+                    android:id="@+id/text_set_alarm5"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="设置5分钟闹钟"
+                    android:drawableLeft="@drawable/ic_alarm_black_48dp"
+                    android:layout_marginTop="2dp" android:layout_marginRight="1dp"
+                    android:background="@color/white"
+                    android:gravity="center_vertical"
+                    android:paddingLeft="@dimen/activity_horizontal_margin"
+                    android:paddingRight="@dimen/activity_horizontal_margin"
+                    android:textSize="@dimen/font_larger"
+                    android:drawablePadding="10dp"
+                    android:paddingTop="10dp"
+                    android:paddingBottom="10dp"
+                    />
+            <TextView
+                    android:id="@+id/text_set_alarm8"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="设置8分钟闹钟"
+                    android:drawableLeft="@drawable/ic_alarm_black_48dp"
+                    android:layout_marginTop="2dp" android:layout_marginRight="1dp"
+                    android:gravity="center_vertical"
+                    android:background="@color/white"
+                    android:paddingLeft="@dimen/activity_horizontal_margin"
+                    android:paddingRight="@dimen/activity_horizontal_margin"
+                    android:textSize="@dimen/font_larger"
+                    android:drawablePadding="10dp"
+                    android:paddingTop="10dp"
+                    android:paddingBottom="10dp"
+
+                    />
+            <TextView
+                    android:id="@+id/text_set_alarm10"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="设置10分钟闹钟"
+                    android:drawableLeft="@drawable/ic_alarm_black_48dp"
+                    android:gravity="center_vertical"
+                    android:layout_marginTop="2dp" android:layout_marginRight="1dp"
+                    android:background="@color/white"
+                    android:paddingLeft="@dimen/activity_horizontal_margin"
+                    android:paddingRight="@dimen/activity_horizontal_margin"
+                    android:textSize="@dimen/font_larger"
+                    android:drawablePadding="10dp"
+                    android:paddingTop="10dp"
+                    android:paddingBottom="10dp"
+
+                    />
+            <TextView
+                    android:id="@+id/text_set_alarm15"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="设置15分钟闹钟"
+                    android:drawableLeft="@drawable/ic_alarm_black_48dp"
+                    android:gravity="center_vertical"
+                    android:layout_marginTop="2dp" android:layout_marginRight="1dp"
+                    android:background="@color/white"
+                    android:paddingLeft="@dimen/activity_horizontal_margin"
+                    android:paddingRight="@dimen/activity_horizontal_margin"
+                    android:textSize="@dimen/font_larger"
+                    android:drawablePadding="10dp"
+                    android:paddingTop="10dp"
+                    android:paddingBottom="10dp"
+
+                    />
+            <TextView
+                    android:id="@+id/text_set_alarm20"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="设置20分钟闹钟"
+                    android:drawableLeft="@drawable/ic_alarm_black_48dp"
+                    android:gravity="center_vertical"
+                    android:layout_marginTop="2dp"
+                    android:layout_marginRight="1dp"
+                    android:layout_marginBottom="2dp"
+                    android:background="@color/white"
+                    android:paddingLeft="@dimen/activity_horizontal_margin"
+                    android:paddingRight="@dimen/activity_horizontal_margin"
+                    android:textSize="@dimen/font_larger"
+                    android:drawablePadding="10dp"
+                    android:paddingTop="10dp"
+                    android:paddingBottom="10dp"
+                    />
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>
