@@ -82,7 +82,8 @@ android {
 
     // 友盟多渠道打包
     productFlavors {
-        wandoujia {}
+        //wandoujia {}
+        fir{}
         //_360 {}
         //baidu {}
         //xiaomi {}
