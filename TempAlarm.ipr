@@ -22,7 +22,8 @@
   <component name="CopyrightManager" default="" />
   <component name="Encoding">
     <file url="file://$PROJECT_DIR$/app/src/main/java/com/yuexiaohome/tempalarm/activities/CancelAlarmActivity.java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/app/src/main/java/com/yuexiaohome/tempalarm/app/MainActivity.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app/src/main/java/com/yuexiaohome/tempalarm/activities/MainActivity.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app/src/main/java/com/yuexiaohome/tempalarm/global/YXApplication.java" charset="UTF-8" />
   </component>
   <component name="EntryPointsManager">
     <entry_points version="2.0" />
@@ -68,10 +69,13 @@
     <option name="id" value="Android" />
   </component>
   <component name="VcsDirectoryMappings">
-    <mapping directory="" vcs="" />
+    <mapping directory="$PROJECT_DIR$" vcs="Git" />
   </component>
   <component name="libraryTable">
     <library name="appcompat-v7-20.0.0">
+      <ANNOTATIONS>
+        <root url="jar://$PROJECT_DIR$/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/20.0.0/annotations.zip!/" />
+      </ANNOTATIONS>
       <CLASSES>
         <root url="jar://$PROJECT_DIR$/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/20.0.0/jars/classes.jar!/" />
         <root url="file://$PROJECT_DIR$/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/20.0.0/res" />
@@ -87,6 +91,14 @@
       <SOURCES>
         <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.jakewharton/butterknife/7.0.1/ad53343e57ae0969aaf451a19eef381abe2ad3a1/butterknife-7.0.1-sources.jar!/" />
       </SOURCES>
+    </library>
+    <library name="multidex-1.0.1">
+      <CLASSES>
+        <root url="file://$PROJECT_DIR$/app/build/intermediates/exploded-aar/com.android.support/multidex/1.0.1/res" />
+        <root url="jar://$PROJECT_DIR$/app/build/intermediates/exploded-aar/com.android.support/multidex/1.0.1/jars/classes.jar!/" />
+      </CLASSES>
+      <JAVADOC />
+      <SOURCES />
     </library>
     <library name="support-annotations-20.0.0">
       <CLASSES>
@@ -104,7 +116,9 @@
         <root url="jar://$PROJECT_DIR$/app/build/intermediates/exploded-aar/com.android.support/support-v4/20.0.0/jars/classes.jar!/" />
       </CLASSES>
       <JAVADOC />
-      <SOURCES />
+      <SOURCES>
+        <root url="jar://D:/bin/android-sdk-windows/extras/android/m2repository/com/android/support/support-v4/20.0.0/support-v4-20.0.0-sources.jar!/" />
+      </SOURCES>
     </library>
   </component>
   <component name="masterDetails">

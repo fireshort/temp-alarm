@@ -11,6 +11,7 @@ import android.media.RingtoneManager;
 import android.os.Bundle;
 import android.os.PowerManager;
 import android.view.WindowManager;
+import com.yuexiaohome.tempalarm.global.Setting;
 
 public class AlarmActivity extends Activity
 {
@@ -48,7 +49,9 @@ public class AlarmActivity extends Activity
             e.printStackTrace();
         }
 
-        AlertDialog.Builder builder=new AlertDialog.Builder(AlarmActivity.this).setTitle("临时闹钟").setMessage("悦悦、笑笑，时间到了。")
+        String alarmText=Setting.getString("alerm_text","时间到了。") ;
+
+        AlertDialog.Builder builder=new AlertDialog.Builder(AlarmActivity.this).setTitle("临时闹钟").setMessage(alarmText)
                 .setPositiveButton("确定",new DialogInterface.OnClickListener()
                 {
                     @Override

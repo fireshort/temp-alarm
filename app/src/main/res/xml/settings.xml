@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+    <EditTextPreference
+            android:key="alerm_text"
+            android:title="闹钟文本"
+            android:summary="闹钟响起时显示的文本"
+            android:defaultValue="时间到了。"
+            />
+</PreferenceScreen>

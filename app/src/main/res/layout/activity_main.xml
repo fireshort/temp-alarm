@@ -86,18 +86,35 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="设置20分钟闹钟"
-                    android:drawableLeft="@drawable/ic_alarm_black_48dp"
-                    android:gravity="center_vertical"
-                    android:layout_marginTop="2dp"
-                    android:layout_marginRight="1dp"
-                    android:layout_marginBottom="2dp"
-                    android:background="@color/white"
-                    android:paddingLeft="@dimen/activity_horizontal_margin"
-                    android:paddingRight="@dimen/activity_horizontal_margin"
-                    android:textSize="@dimen/font_larger"
-                    android:drawablePadding="10dp"
-                    android:paddingTop="10dp"
-                    android:paddingBottom="10dp"
+                    style="@style/AlarmText"
+                    />
+            <TextView
+                    android:id="@+id/text_set_alarm30"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="设置30分钟闹钟"
+                    style="@style/AlarmText"
+                    />
+            <TextView
+                    android:id="@+id/text_set_alarm60"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="设置60分钟闹钟"
+                    style="@style/AlarmText"
+                    />
+            <TextView
+                    android:id="@+id/text_set_alarm90"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="设置90分钟闹钟"
+                    style="@style/AlarmText"
+                    />
+            <TextView
+                    android:id="@+id/text_set_alarm120"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="设置120分钟闹钟"
+                    style="@style/AlarmText"
                     />
         </LinearLayout>
     </ScrollView>

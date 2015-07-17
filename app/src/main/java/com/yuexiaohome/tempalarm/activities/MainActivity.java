@@ -1,4 +1,4 @@
-package com.yuexiaohome.tempalarm.app;
+package com.yuexiaohome.tempalarm.activities;
 
 import android.app.AlarmManager;
 import android.app.Notification;
@@ -13,8 +13,7 @@ import android.view.View;
 import android.widget.Toast;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
-import com.yuexiaohome.tempalarm.activities.AlarmActivity;
-import com.yuexiaohome.tempalarm.activities.CancelAlarmActivity;
+import com.yuexiaohome.tempalarm.R;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -57,6 +56,9 @@ public class MainActivity extends ActionBarActivity
         //noinspection SimplifiableIfStatement
         if(id==R.id.action_settings)
         {
+            Intent intent=new Intent(this,SettingsActivity.class);
+            //intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+            startActivity(intent);
             return true;
         }
 
@@ -114,7 +116,9 @@ public class MainActivity extends ActionBarActivity
 
     }
 
-    @OnClick({R.id.text_set_alarm5,R.id.text_set_alarm8,R.id.text_set_alarm10,R.id.text_set_alarm15,R.id.text_set_alarm20})
+    @OnClick({R.id.text_set_alarm5,R.id.text_set_alarm8,R.id.text_set_alarm10,R.id.text_set_alarm15,
+            R.id.text_set_alarm20,R.id.text_set_alarm30,R.id.text_set_alarm60,R.id.text_set_alarm90,
+            R.id.text_set_alarm120})
     public void onClick(View v)
     {
         switch(v.getId())
@@ -133,6 +137,18 @@ public class MainActivity extends ActionBarActivity
             break;
         case R.id.text_set_alarm20:
             setAlarm(20);
+            break;
+        case R.id.text_set_alarm30:
+            setAlarm(30);
+            break;
+        case R.id.text_set_alarm60:
+            setAlarm(60);
+            break;
+        case R.id.text_set_alarm90:
+            setAlarm(90);
+            break;
+        case R.id.text_set_alarm120:
+            setAlarm(120);
             break;
         }
 

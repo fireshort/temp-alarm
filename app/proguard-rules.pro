@@ -1,6 +1,6 @@
 # Add project specific ProGuard rules here.
 # By default, the flags in this file are appended to flags specified
-# in D:/bin/android-sdk-windows/tools/proguard/proguard-android.txt
+# in /home/harry/bin/android-sdk-linux/tools/proguard/proguard-android.txt
 # You can edit the include path and order by changing the proguardFiles
 # directive in build.gradle.
 #
@@ -14,4 +14,30 @@
 # class:
 #-keepclassmembers class fqcn.of.javascript.interface.for.webview {
 #   public *;
-#}
+
+-keepclassmembers class com.rongkedai.ui.UAJscriptHandler{
+   public *;
+}
+
+-dontwarn c.t.m.g.**
+
+-dontwarn in.srain.**
+
+-keepclassmembers class ** {
+    public void onEvent*(**);
+}
+
+-keep class butterknife.** { *; }
+-dontwarn butterknife.internal.**
+-keep class **$$ViewInjector { *; }
+
+-keepclasseswithmembernames class * {
+    @butterknife.* <fields>;
+}
+
+-keepclasseswithmembernames class * {
+    @butterknife.* <methods>;
+}
+
+
+-keep class android.support.v7.widget.SearchView { *; }
