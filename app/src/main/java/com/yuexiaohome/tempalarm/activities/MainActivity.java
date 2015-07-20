@@ -10,9 +10,13 @@ import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.TextView;
 import android.widget.Toast;
+import butterknife.Bind;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+import com.amulyakhare.textdrawable.TextDrawable;
+import com.amulyakhare.textdrawable.util.ColorGenerator;
 import com.yuexiaohome.tempalarm.R;
 
 import java.text.SimpleDateFormat;
@@ -26,6 +30,18 @@ public class MainActivity extends ActionBarActivity
 
     private long lastSetAlarm=0;
 
+    @Bind(R.id.text_set_alarm5)
+    TextView text_set_alarm5;
+
+    @Bind(R.id.text_set_alarm8)
+    TextView text_set_alarm8;
+
+    private String[] minutes={"5","8","10","15","20","30","60","90","120"};
+
+    private int[] ids={R.id.text_set_alarm5,R.id.text_set_alarm8,R.id.text_set_alarm10,R.id.text_set_alarm15,
+            R.id.text_set_alarm20,R.id.text_set_alarm30,R.id.text_set_alarm60,R.id.text_set_alarm90,
+            R.id.text_set_alarm120};
+
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
@@ -35,6 +51,25 @@ public class MainActivity extends ActionBarActivity
 
         alarmManager=(AlarmManager)getSystemService(ALARM_SERVICE);
         nm=(NotificationManager)getSystemService(NOTIFICATION_SERVICE);
+
+        ColorGenerator generator=ColorGenerator.MATERIAL; // or use DEFAULT
+// declare the builder object once.
+        TextDrawable.IBuilder builder=TextDrawable.builder()
+                .beginConfig()
+                //.withBorder(4)
+                .width(120)  // width in px
+                .height(120) // height in px
+                .endConfig()
+                .round();
+        for(int i=0; i<minutes.length; i++)
+        {
+            TextDrawable textDrawable=builder.build(minutes[i],generator.getColor(minutes[i]));
+
+            textDrawable.setBounds(0,0,textDrawable.getMinimumWidth(),textDrawable.getMinimumHeight());
+            ((TextView)ButterKnife.findById(this,ids[i])).setCompoundDrawables(textDrawable,null,null,null);
+        }
+
+
     }
 
     @Override

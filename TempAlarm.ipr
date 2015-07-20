@@ -92,6 +92,14 @@
         <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.jakewharton/butterknife/7.0.1/ad53343e57ae0969aaf451a19eef381abe2ad3a1/butterknife-7.0.1-sources.jar!/" />
       </SOURCES>
     </library>
+    <library name="com.amulyakhare.textdrawable-1.0.1">
+      <CLASSES>
+        <root url="file://$PROJECT_DIR$/app/build/intermediates/exploded-aar/com.amulyakhare/com.amulyakhare.textdrawable/1.0.1/res" />
+        <root url="jar://$PROJECT_DIR$/app/build/intermediates/exploded-aar/com.amulyakhare/com.amulyakhare.textdrawable/1.0.1/jars/classes.jar!/" />
+      </CLASSES>
+      <JAVADOC />
+      <SOURCES />
+    </library>
     <library name="multidex-1.0.1">
       <CLASSES>
         <root url="file://$PROJECT_DIR$/app/build/intermediates/exploded-aar/com.android.support/multidex/1.0.1/res" />
