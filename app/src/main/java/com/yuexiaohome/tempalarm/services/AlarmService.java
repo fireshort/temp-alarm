@@ -30,20 +30,21 @@ public class AlarmService extends Service
     public int onStartCommand(Intent intent,int flags,int startId)
     {
         PowerManager pm=(PowerManager)getSystemService(Context.POWER_SERVICE);
-        mWakelock=pm.newWakeLock(PowerManager.ACQUIRE_CAUSES_WAKEUP|PowerManager.SCREEN_DIM_WAKE_LOCK,"SimpleTimer");
+        mWakelock=pm.newWakeLock(PowerManager.FULL_WAKE_LOCK,"SimpleTimer");
         mWakelock.acquire();
 
         int i=super.onStartCommand(intent,flags,startId);
         //Intent intent=getIntent();
         int id=intent.getIntExtra("id",0);
-        System.out.println("id at Alarm Service:"+id);
+        System.out.println("id at Alarm Service2:"+id);
 
         NotificationManager nm=(NotificationManager)getSystemService(NOTIFICATION_SERVICE);
         nm.cancel(id);
         // 加载指定音乐，并为之创建MediaPlayer对象
         try
         {
-            if(alarmMusic==null)alarmMusic=new MediaPlayer();
+            if(alarmMusic==null)
+                alarmMusic=new MediaPlayer();
             if(!alarmMusic.isPlaying())
             {
                 //alarmMusic.stop();
@@ -58,7 +59,7 @@ public class AlarmService extends Service
             e.printStackTrace();
         }
 
-        String alarmText=Setting.getString("alerm_text","时间到了。") ;
+        String alarmText=Setting.getString("alerm_text","时间到了。");
 
         AlertDialog.Builder builder=new AlertDialog.Builder(AlarmService.this).setTitle("临时闹钟").setMessage(alarmText)
                 .setPositiveButton("确定",new DialogInterface.OnClickListener()
@@ -82,8 +83,6 @@ public class AlarmService extends Service
         return START_REDELIVER_INTENT;
     }
 
-
-
     @Override
     public void onDestroy()
     {
@@ -95,6 +94,5 @@ public class AlarmService extends Service
             mWakelock=null;
         }
     }
-
 
 }
