@@ -10,7 +10,7 @@ android {
 
     defaultConfig {
         applicationId "com.yuexiaohome.tempalarm"
-        minSdkVersion 14
+        minSdkVersion 19
         targetSdkVersion 19
         versionCode 2
         versionName "1.01"

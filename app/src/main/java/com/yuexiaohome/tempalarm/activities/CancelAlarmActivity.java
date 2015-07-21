@@ -6,6 +6,7 @@ import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.Intent;
 import android.os.Bundle;
+import com.yuexiaohome.tempalarm.receivers.AlarmBroadcastReceiver;
 
 public class CancelAlarmActivity extends Activity
 {
@@ -25,8 +26,11 @@ public class CancelAlarmActivity extends Activity
 
             System.out.println("id2 CancelAlarmActivity:"+id);
             AlarmManager alarmManager=(AlarmManager)getSystemService(ALARM_SERVICE);
-            Intent i=new Intent(CancelAlarmActivity.this,AlarmActivity.class);
-            PendingIntent pi=PendingIntent.getActivity(this,id,i,0);
+
+            //Intent i=new Intent(CancelAlarmActivity.this,AlarmActivity.class);
+            Intent i=new Intent(CancelAlarmActivity.this,AlarmBroadcastReceiver.class);
+
+            PendingIntent pi=PendingIntent.getBroadcast(this,id,i,0);
             alarmManager.cancel(pi);
             this.finish();
         }

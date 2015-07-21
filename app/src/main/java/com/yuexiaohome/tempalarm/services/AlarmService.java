@@ -1,19 +1,19 @@
-package com.yuexiaohome.tempalarm.activities;
+package com.yuexiaohome.tempalarm.services;
 
-import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.NotificationManager;
+import android.app.Service;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.media.MediaPlayer;
 import android.media.RingtoneManager;
-import android.os.Bundle;
+import android.os.IBinder;
 import android.os.PowerManager;
 import android.view.WindowManager;
 import com.yuexiaohome.tempalarm.global.Setting;
 
-public class AlarmActivity extends Activity
+public class AlarmService extends Service
 {
     // 声明MediaPlayer对象
     private static MediaPlayer alarmMusic=new MediaPlayer();
@@ -21,13 +21,22 @@ public class AlarmActivity extends Activity
     private PowerManager.WakeLock mWakelock;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState)
+    public IBinder onBind(Intent intent)
     {
-        super.onCreate(savedInstanceState);
+        return null;
+    }
 
-        Intent intent=getIntent();
+    @Override
+    public int onStartCommand(Intent intent,int flags,int startId)
+    {
+        PowerManager pm=(PowerManager)getSystemService(Context.POWER_SERVICE);
+        mWakelock=pm.newWakeLock(PowerManager.ACQUIRE_CAUSES_WAKEUP|PowerManager.SCREEN_DIM_WAKE_LOCK,"SimpleTimer");
+        mWakelock.acquire();
+
+        int i=super.onStartCommand(intent,flags,startId);
+        //Intent intent=getIntent();
         int id=intent.getIntExtra("id",0);
-        System.out.println("id alarmactivity:"+id);
+        System.out.println("id at Alarm Service:"+id);
 
         NotificationManager nm=(NotificationManager)getSystemService(NOTIFICATION_SERVICE);
         nm.cancel(id);
@@ -51,7 +60,7 @@ public class AlarmActivity extends Activity
 
         String alarmText=Setting.getString("alerm_text","时间到了。") ;
 
-        AlertDialog.Builder builder=new AlertDialog.Builder(AlarmActivity.this).setTitle("临时闹钟").setMessage(alarmText)
+        AlertDialog.Builder builder=new AlertDialog.Builder(AlarmService.this).setTitle("临时闹钟").setMessage(alarmText)
                 .setPositiveButton("确定",new DialogInterface.OnClickListener()
                 {
                     @Override
@@ -61,17 +70,22 @@ public class AlarmActivity extends Activity
                         alarmMusic.stop();
                         alarmMusic=null;
                         // 结束该Activity
-                        AlarmActivity.this.finish();
+                        //AlarmService.this.finish();
+                        AlarmService.this.stopSelf();
                     }
                 });
         AlertDialog alertDialog=builder.create();
         alertDialog.getWindow().setType(WindowManager.LayoutParams.TYPE_SYSTEM_ALERT);
         alertDialog.setCanceledOnTouchOutside(false);
         alertDialog.show();
+
+        return START_REDELIVER_INTENT;
     }
 
+
+
     @Override
-    protected void onDestroy()
+    public void onDestroy()
     {
         super.onDestroy();
 
@@ -82,19 +96,5 @@ public class AlarmActivity extends Activity
         }
     }
 
-    @Override
-    protected void onPause()
-    {
-        super.onPause();
-    }
 
-    @Override
-    protected void onResume()
-    {
-        super.onResume();
-
-        PowerManager pm=(PowerManager)getSystemService(Context.POWER_SERVICE);
-        mWakelock=pm.newWakeLock(PowerManager.ACQUIRE_CAUSES_WAKEUP|PowerManager.SCREEN_DIM_WAKE_LOCK,"SimpleTimer");
-        mWakelock.acquire();
-    }
 }

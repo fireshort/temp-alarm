@@ -12,12 +12,12 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
-import butterknife.Bind;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import com.amulyakhare.textdrawable.TextDrawable;
 import com.amulyakhare.textdrawable.util.ColorGenerator;
 import com.yuexiaohome.tempalarm.R;
+import com.yuexiaohome.tempalarm.receivers.AlarmBroadcastReceiver;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -29,12 +29,6 @@ public class MainActivity extends ActionBarActivity
     private NotificationManager nm;
 
     private long lastSetAlarm=0;
-
-    @Bind(R.id.text_set_alarm5)
-    TextView text_set_alarm5;
-
-    @Bind(R.id.text_set_alarm8)
-    TextView text_set_alarm8;
 
     private String[] minutes={"5","8","10","15","20","30","60","90","120"};
 
@@ -111,14 +105,19 @@ public class MainActivity extends ActionBarActivity
             calendar.setTimeInMillis(currentMilliseconds);
             calendar.add(Calendar.MINUTE,minute);
 
-            Intent intent=new Intent(MainActivity.this,AlarmActivity.class);
+            //Intent intent=new Intent(MainActivity.this,AlarmActivity.class);
+            Intent intent=new Intent(MainActivity.this,AlarmBroadcastReceiver.class);
+
             intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP|Intent.FLAG_ACTIVITY_NEW_TASK); // 看是否有效果，在其他地方
             SimpleDateFormat dateformat=new SimpleDateFormat("HHmmssSSS");
             int id=Integer.valueOf(dateformat.format(calendar.getTime()));
             System.out.println("id at hellomini:"+id);
             intent.putExtra("id",id);
-            PendingIntent pi=PendingIntent.getActivity(MainActivity.this,id,intent,0);
-            alarmManager.set(AlarmManager.RTC_WAKEUP,calendar.getTimeInMillis(),pi);
+
+            //PendingIntent pi=PendingIntent.getActivity(MainActivity.this,id,intent,0);
+            PendingIntent pi=PendingIntent.getBroadcast(MainActivity.this,id,intent,0);
+
+            alarmManager.setExact(AlarmManager.RTC_WAKEUP,calendar.getTimeInMillis(),pi);
             Toast.makeText(MainActivity.this,"闹钟设置成功。",Toast.LENGTH_SHORT).show();
 
             Notification baseNF=new Notification();
