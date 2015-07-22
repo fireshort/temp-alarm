@@ -19,66 +19,28 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="设置5分钟闹钟"
-                    android:drawableLeft="@drawable/ic_alarm_black_48dp"
-                    android:layout_marginTop="2dp" android:layout_marginRight="1dp"
-                    android:background="@color/white"
-                    android:gravity="center_vertical"
-                    android:paddingLeft="@dimen/activity_horizontal_margin"
-                    android:paddingRight="@dimen/activity_horizontal_margin"
-                    android:textSize="@dimen/font_larger"
-                    android:drawablePadding="10dp"
-                    android:paddingTop="10dp"
-                    android:paddingBottom="10dp"
+                    style="@style/AlarmText"
                     />
             <TextView
                     android:id="@+id/text_set_alarm8"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="设置8分钟闹钟"
-                    android:drawableLeft="@drawable/ic_alarm_black_48dp"
-                    android:layout_marginTop="2dp" android:layout_marginRight="1dp"
-                    android:gravity="center_vertical"
-                    android:background="@color/white"
-                    android:paddingLeft="@dimen/activity_horizontal_margin"
-                    android:paddingRight="@dimen/activity_horizontal_margin"
-                    android:textSize="@dimen/font_larger"
-                    android:drawablePadding="10dp"
-                    android:paddingTop="10dp"
-                    android:paddingBottom="10dp"
-
+                    style="@style/AlarmText"
                     />
             <TextView
                     android:id="@+id/text_set_alarm10"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="设置10分钟闹钟"
-                    android:drawableLeft="@drawable/ic_alarm_black_48dp"
-                    android:gravity="center_vertical"
-                    android:layout_marginTop="2dp" android:layout_marginRight="1dp"
-                    android:background="@color/white"
-                    android:paddingLeft="@dimen/activity_horizontal_margin"
-                    android:paddingRight="@dimen/activity_horizontal_margin"
-                    android:textSize="@dimen/font_larger"
-                    android:drawablePadding="10dp"
-                    android:paddingTop="10dp"
-                    android:paddingBottom="10dp"
-
+                    style="@style/AlarmText"
                     />
             <TextView
                     android:id="@+id/text_set_alarm15"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="设置15分钟闹钟"
-                    android:drawableLeft="@drawable/ic_alarm_black_48dp"
-                    android:gravity="center_vertical"
-                    android:layout_marginTop="2dp" android:layout_marginRight="1dp"
-                    android:background="@color/white"
-                    android:paddingLeft="@dimen/activity_horizontal_margin"
-                    android:paddingRight="@dimen/activity_horizontal_margin"
-                    android:textSize="@dimen/font_larger"
-                    android:drawablePadding="10dp"
-                    android:paddingTop="10dp"
-                    android:paddingBottom="10dp"
+                    style="@style/AlarmText"
 
                     />
             <TextView
@@ -96,24 +58,10 @@
                     style="@style/AlarmText"
                     />
             <TextView
-                    android:id="@+id/text_set_alarm60"
+                    android:id="@+id/text_set_alarm_custom"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="设置60分钟闹钟"
-                    style="@style/AlarmText"
-                    />
-            <TextView
-                    android:id="@+id/text_set_alarm90"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="设置90分钟闹钟"
-                    style="@style/AlarmText"
-                    />
-            <TextView
-                    android:id="@+id/text_set_alarm120"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="设置120分钟闹钟"
+                    android:text="自定义闹钟"
                     style="@style/AlarmText"
                     />
         </LinearLayout>

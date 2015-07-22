@@ -6,6 +6,7 @@ import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v4.app.DialogFragment;
 import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -17,12 +18,13 @@ import butterknife.OnClick;
 import com.amulyakhare.textdrawable.TextDrawable;
 import com.amulyakhare.textdrawable.util.ColorGenerator;
 import com.yuexiaohome.tempalarm.R;
+import com.yuexiaohome.tempalarm.fragments.InputMinuteFragment;
 import com.yuexiaohome.tempalarm.receivers.AlarmBroadcastReceiver;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
-public class MainActivity extends ActionBarActivity
+public class MainActivity extends ActionBarActivity implements InputMinuteFragment.InputMinuteFragmentListener
 {
     private AlarmManager alarmManager;
 
@@ -30,11 +32,10 @@ public class MainActivity extends ActionBarActivity
 
     private long lastSetAlarm=0;
 
-    private String[] minutes={"5","8","10","15","20","30","60","90","120"};
+    private String[] minutes={"5","8","10","15","20","30","C"};
 
     private int[] ids={R.id.text_set_alarm5,R.id.text_set_alarm8,R.id.text_set_alarm10,R.id.text_set_alarm15,
-            R.id.text_set_alarm20,R.id.text_set_alarm30,R.id.text_set_alarm60,R.id.text_set_alarm90,
-            R.id.text_set_alarm120};
+            R.id.text_set_alarm20,R.id.text_set_alarm30,R.id.text_set_alarm_custom};
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -151,8 +152,7 @@ public class MainActivity extends ActionBarActivity
     }
 
     @OnClick({R.id.text_set_alarm5,R.id.text_set_alarm8,R.id.text_set_alarm10,R.id.text_set_alarm15,
-            R.id.text_set_alarm20,R.id.text_set_alarm30,R.id.text_set_alarm60,R.id.text_set_alarm90,
-            R.id.text_set_alarm120})
+            R.id.text_set_alarm20,R.id.text_set_alarm30,R.id.text_set_alarm_custom})
     public void onClick(View v)
     {
         switch(v.getId())
@@ -175,16 +175,18 @@ public class MainActivity extends ActionBarActivity
         case R.id.text_set_alarm30:
             setAlarm(30);
             break;
-        case R.id.text_set_alarm60:
-            setAlarm(60);
-            break;
-        case R.id.text_set_alarm90:
-            setAlarm(90);
-            break;
-        case R.id.text_set_alarm120:
-            setAlarm(120);
+        case R.id.text_set_alarm_custom:
+            DialogFragment fragment = new InputMinuteFragment();
+            //fragment.setArguments(bundle);
+            fragment.show(getSupportFragmentManager(),null);
             break;
         }
 
+    }
+
+    @Override
+    public void onFinishInputMinute(String inputText) {
+        //Toast.makeText(this, "Hi, " + inputText, Toast.LENGTH_SHORT).show();
+        setAlarm(Integer.valueOf(inputText));
     }
 }
