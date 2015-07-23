@@ -30,7 +30,7 @@ public class AlarmService extends Service
     public int onStartCommand(Intent intent,int flags,int startId)
     {
         PowerManager pm=(PowerManager)getSystemService(Context.POWER_SERVICE);
-        mWakelock=pm.newWakeLock(PowerManager.FULL_WAKE_LOCK,"SimpleTimer");
+        mWakelock=pm.newWakeLock(PowerManager.ACQUIRE_CAUSES_WAKEUP|PowerManager.FULL_WAKE_LOCK,"SimpleTimer");
         mWakelock.acquire();
 
         int i=super.onStartCommand(intent,flags,startId);

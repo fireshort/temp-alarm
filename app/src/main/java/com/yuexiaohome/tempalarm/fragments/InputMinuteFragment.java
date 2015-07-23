@@ -47,6 +47,7 @@ public class InputMinuteFragment extends BlurDialogFragment implements TextView.
 
 //        getDialog().getWindow().setSoftInputMode(
 //                WindowManager.LayoutParams.SOFT_INPUT_STATE_VISIBLE);
+        getDialog().setTitle("请输入分钟数");
         edit_input_minute.setOnEditorActionListener(this);
 
 

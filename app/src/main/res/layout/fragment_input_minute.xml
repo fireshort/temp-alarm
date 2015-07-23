@@ -37,7 +37,11 @@
                     android:padding="10dp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:id="@+id/edit_input_minute" android:layout_gravity="center_horizontal" android:inputType="numberSigned"/>
+                    android:id="@+id/edit_input_minute"
+                    android:layout_gravity="center_horizontal"
+                    android:inputType="numberSigned"
+                    android:imeOptions="actionDone"
+                    />
 
             <LinearLayout
                     android:layout_marginTop="1dp"
@@ -57,7 +61,6 @@
                         android:text="确定"
                         android:textSize="18sp"
                         android:background="@drawable/blue_btn"
-                        android:imeOptions="actionDone"
                         />
 
                 <Button

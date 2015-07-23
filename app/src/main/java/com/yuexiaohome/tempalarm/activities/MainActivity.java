@@ -7,6 +7,7 @@ import android.app.PendingIntent;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.DialogFragment;
+import android.support.v4.app.NotificationCompat;
 import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -20,6 +21,7 @@ import com.amulyakhare.textdrawable.util.ColorGenerator;
 import com.yuexiaohome.tempalarm.R;
 import com.yuexiaohome.tempalarm.fragments.InputMinuteFragment;
 import com.yuexiaohome.tempalarm.receivers.AlarmBroadcastReceiver;
+import com.yuexiaohome.tempalarm.utils.ImageUtil;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -31,6 +33,8 @@ public class MainActivity extends ActionBarActivity implements InputMinuteFragme
     private NotificationManager nm;
 
     private long lastSetAlarm=0;
+
+    private TextDrawable.IBuilder builder;
 
     private String[] minutes={"5","8","10","15","20","30","C"};
 
@@ -49,7 +53,7 @@ public class MainActivity extends ActionBarActivity implements InputMinuteFragme
 
         ColorGenerator generator=ColorGenerator.MATERIAL; // or use DEFAULT
 // declare the builder object once.
-        TextDrawable.IBuilder builder=TextDrawable.builder()
+        builder=TextDrawable.builder()
                 .beginConfig()
                 //.withBorder(4)
                 .width(120)  // width in px
@@ -121,29 +125,38 @@ public class MainActivity extends ActionBarActivity implements InputMinuteFragme
             alarmManager.setExact(AlarmManager.RTC_WAKEUP,calendar.getTimeInMillis(),pi);
             Toast.makeText(MainActivity.this,"闹钟设置成功。",Toast.LENGTH_SHORT).show();
 
-            Notification baseNF=new Notification();
-            // 设置通知在状态栏显示的图标
-            baseNF.icon=R.drawable.ic_alarm_white_24dp;
+            Intent i=new Intent(this,CancelAlarmActivity.class);
+            i.putExtra("id",id);
+            PendingIntent pd=PendingIntent.getActivity(this,id,i,PendingIntent.FLAG_UPDATE_CURRENT);
+
+
+            TextDrawable textDrawable=builder.build(String.valueOf(minute),ColorGenerator.MATERIAL.getColor(String.valueOf(minute)));
+
             dateformat=new SimpleDateFormat("yyyy-MM-dd HH:mm");
             // 通知时在状态栏显示的内容
             String contentText="已设闹钟："+dateformat.format(calendar.getTime())+" 点击取消。";
-            baseNF.tickerText=contentText;
-            // 通知的默认参数 DEFAULT_SOUND, DEFAULT_VIBRATE, DEFAULT_LIGHTS.
-            baseNF.defaults=Notification.DEFAULT_SOUND;
-            baseNF.flags|=Notification.FLAG_AUTO_CANCEL;
-            baseNF.flags|=Notification.FLAG_NO_CLEAR;// 点击'Clear'时，不清除该通知
-            // 第二个参数 ：下拉状态栏时显示的消息标题 expanded message title
-            // 第三个参数：下拉状态栏时显示的消息内容 expanded message text
-            // 第四个参数：点击该通知时执行页面跳转
-            Intent i=new Intent(this,CancelAlarmActivity.class);
-            i.putExtra("id",id);
+            NotificationCompat.Builder mBuilder=new NotificationCompat.Builder(MainActivity.this);
+            mBuilder.setTicker(contentText)//通知首次出现在通知栏，带上升动画效果的
+                    .setContentTitle(getResources().getString(R.string.app_name))//设置通知栏标题
+                    .setContentText(contentText) //设置通知栏显示内容
+                    .setContentIntent(pd) //设置通知栏点击意图
+//  .setNumber(number) //设置通知集合的数量
+                            //.setWhen(System.currentTimeMillis())//通知产生的时间，会在通知信息里显示，一般是系统获取到的时间
+                    .setPriority(Notification.PRIORITY_DEFAULT) //设置该通知优先级 Notification.PRIORITY_MIN
+//  .setAutoCancel(true)//设置这个标志当用户单击面板就可以让通知将自动取消
+                    .setOngoing(true)//ture，设置他为一个正在进行的通知。他们通常是用来表示一个后台任务,用户积极参与(如播放音乐)或以某种方式正在等待,因此占用设备(如一个文件下载,同步操作,主动网络连接)
+                    .setDefaults(Notification.DEFAULT_SOUND)//向通知添加声音、闪灯和振动效果的最简单、最一致的方式是使用当前的用户默认设置，使用defaults属性，可以组合
+                            //Notification.DEFAULT_ALL  Notification.DEFAULT_SOUND 添加声音 // requires VIBRATE permission
+                    .setLargeIcon(ImageUtil.drawableToBitmap(textDrawable))
+                    .setSmallIcon(R.drawable.ic_alarm_white_24dp);//设置通知小ICON
+            Notification notification=mBuilder.build();
+            notification.flags|=Notification.FLAG_AUTO_CANCEL;
+            notification.flags |= Notification.FLAG_NO_CLEAR;// 点击'Clear'时，不清除该通知
 
-            PendingIntent pd=PendingIntent.getActivity(this,id,i,PendingIntent.FLAG_UPDATE_CURRENT);
-            baseNF.setLatestEventInfo(this,"临时闹钟",contentText,pd);
             // 发出状态栏通知
-            // The first parameter is the unique ID for the Notification
-            // and the second is the Notification object.
-            nm.notify(id,baseNF);
+            // The first parameter is the unique ID for the Notification and the second is the Notification object.
+            nm.notify(id, notification);
+
         }else
         {
 
