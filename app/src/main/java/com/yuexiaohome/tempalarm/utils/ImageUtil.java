@@ -317,19 +317,19 @@ public final class ImageUtil
     }
 
     public static Bitmap drawableToBitmap(Drawable drawable) {
-        // È¡ drawable µÄ³¤¿í
+        // å– drawable çš„é•¿å®½
         int w = drawable.getIntrinsicWidth();
         int h = drawable.getIntrinsicHeight();
 
-        // È¡ drawable µÄÑÕÉ«¸ñÊ½
+        // å– drawable çš„é¢œè‰²æ ¼å¼
         Bitmap.Config config = drawable.getOpacity() != PixelFormat.OPAQUE ? Bitmap.Config.ARGB_8888
                 : Bitmap.Config.RGB_565;
-        // ½¨Á¢¶ÔÓ¦ bitmap
+        // å»ºç«‹å¯¹åº” bitmap
         Bitmap bitmap = Bitmap.createBitmap(w, h, config);
-        // ½¨Á¢¶ÔÓ¦ bitmap µÄ»­²¼
+        // å»ºç«‹å¯¹åº” bitmap çš„ç”»å¸ƒ
         Canvas canvas = new Canvas(bitmap);
         drawable.setBounds(0, 0, w, h);
-        // °Ñ drawable ÄÚÈİ»­µ½»­²¼ÖĞ
+        // æŠŠ drawable å†…å®¹ç”»åˆ°ç”»å¸ƒä¸­
         drawable.draw(canvas);
         return bitmap;
     }

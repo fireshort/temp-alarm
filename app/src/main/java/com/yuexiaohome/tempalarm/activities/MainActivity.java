@@ -148,6 +148,7 @@ public class MainActivity extends ActionBarActivity implements InputMinuteFragme
                     .setDefaults(Notification.DEFAULT_SOUND)//向通知添加声音、闪灯和振动效果的最简单、最一致的方式是使用当前的用户默认设置，使用defaults属性，可以组合
                             //Notification.DEFAULT_ALL  Notification.DEFAULT_SOUND 添加声音 // requires VIBRATE permission
                     .setLargeIcon(ImageUtil.drawableToBitmap(textDrawable))
+                    .setProgress(0,0,true)
                     .setSmallIcon(R.drawable.ic_alarm_white_24dp);//设置通知小ICON
             Notification notification=mBuilder.build();
             notification.flags|=Notification.FLAG_AUTO_CANCEL;
