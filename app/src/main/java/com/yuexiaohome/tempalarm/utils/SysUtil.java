@@ -2,6 +2,8 @@ package com.yuexiaohome.tempalarm.utils;
 
 import android.app.ActivityManager;
 import android.content.Context;
+import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager;
 
 public class SysUtil
 {
@@ -32,5 +34,19 @@ public class SysUtil
 
         }
         return isServiceRunning;
+    }
+
+    public String getVersionName()
+    {
+        String versionName="";
+        PackageManager manager=context.getPackageManager();
+        try
+        {
+            PackageInfo info=manager.getPackageInfo(context.getPackageName(),0);
+            versionName=info.versionName;
+        }catch(PackageManager.NameNotFoundException e)
+        {
+        }
+        return versionName;
     }
 }

@@ -85,16 +85,17 @@ public class MainActivity extends ActionBarActivity implements InputMinuteFragme
         // Handle action bar item clicks here. The action bar will
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
-        int id=item.getItemId();
-
-        //noinspection SimplifiableIfStatement
-        if(id==R.id.action_settings)
+        Intent intent=null;
+        switch(item.getItemId())
         {
-            Intent intent=new Intent(this,SettingsActivity.class);
-            //intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-            startActivity(intent);
-            return true;
+        case R.id.action_settings:
+            intent=new Intent(this,SettingsActivity.class);
+            break;
+        case R.id.action_about:
+            intent=new Intent(this,AboutActivity.class);
+            break;
         }
+        startActivity(intent);
 
         return super.onOptionsItemSelected(item);
     }

@@ -3,4 +3,7 @@
 
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">设置</string>
+    <string name="title_activity_about">关于临时闹钟</string>
+    <string name="remark"><![CDATA[该App是Ivan出于方便快速的设置临时闹钟而开发。虽然已尽力消除错误，仍可能出错。如果要反馈意见，请发邮件到<a href="mailto:ivan4u@gmail.com">ivan4u@gmail.com</a>。]]></string>
+    <string name="bio">Life is hard, we build tools to make life easier.</string>
 </resources>
