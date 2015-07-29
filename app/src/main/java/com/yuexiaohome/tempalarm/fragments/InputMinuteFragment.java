@@ -44,7 +44,7 @@ public class InputMinuteFragment extends BlurDialogFragment implements TextView.
         View view=inflater.inflate(R.layout.fragment_input_minute,container,false);
         ButterKnife.bind(this,view);
 
-
+        getDialog().getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_RESIZE);
 //        getDialog().getWindow().setSoftInputMode(
 //                WindowManager.LayoutParams.SOFT_INPUT_STATE_VISIBLE);
         getDialog().setTitle("请输入分钟数");
