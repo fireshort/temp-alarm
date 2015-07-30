@@ -1,43 +1,42 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.yuexiaohome.tempalarm" >
+          package="com.yuexiaohome.tempalarm">
 
-    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
-    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW"/>
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
 
     <application
-        android:name=".global.YXApplication"
-        android:allowBackup="true"
-        android:icon="@drawable/ic_launcher"
-        android:label="@string/app_name"
-        android:theme="@style/AppTheme" >
+            android:name=".global.YXApplication"
+            android:allowBackup="true"
+            android:icon="@drawable/ic_launcher"
+            android:label="@string/app_name"
+            android:theme="@style/AppTheme">
         <activity
-            android:name=".activities.MainActivity"
-            android:label="@string/app_name" >
+                android:name=".activities.MainActivity"
+                android:label="@string/app_name" android:screenOrientation="portrait">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-        <activity android:name=".activities.AlarmActivity" >
+        <activity android:name=".activities.AlarmActivity">
         </activity>
-        <activity android:name=".activities.CancelAlarmActivity" >
+        <activity android:name=".activities.CancelAlarmActivity">
         </activity>
-        <activity android:name=".activities.SettingsActivity" >
+        <activity android:name=".activities.SettingsActivity">
         </activity>
 
-        <receiver android:name=".receivers.AlarmBroadcastReceiver" />
+        <receiver android:name=".receivers.AlarmBroadcastReceiver"/>
 
-        <service android:name=".services.AlarmService" />
+        <service android:name=".services.AlarmService"/>
 
         <activity
-            android:name=".activities.AboutActivity"
-            android:label="@string/title_activity_about"
-            android:parentActivityName=".activities.MainActivity" >
+                android:name=".activities.AboutActivity"
+                android:label="@string/title_activity_about"
+                android:parentActivityName=".activities.MainActivity" android:screenOrientation="portrait">
             <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.yuexiaohome.tempalarm.activities.MainActivity" />
+                    android:name="android.support.PARENT_ACTIVITY"
+                    android:value="com.yuexiaohome.tempalarm.activities.MainActivity"/>
         </activity>
     </application>
 
