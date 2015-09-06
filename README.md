@@ -10,3 +10,5 @@ Quickly set a temporary alarm, which run only once.
 或者外出跟团旅游时，经常要确定多少分之后集合，那只需运行这个应用，一点自定义闹钟，输入分钟数，马上就设置好一个闹钟，在设定好的时间后就会响起。 
 
 一切都是为了更便利的生活。
+
+可以到[应用宝](http://sj.qq.com/myapp/detail.htm?apkName=com.yuexiaohome.tempalarm)下载apk。
