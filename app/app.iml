@@ -13,8 +13,11 @@
         <option name="ASSEMBLE_TASK_NAME" value="assembleFirDebug" />
         <option name="COMPILE_JAVA_TASK_NAME" value="compileFirDebugSources" />
         <option name="ASSEMBLE_TEST_TASK_NAME" value="assembleFirDebugAndroidTest" />
-        <option name="SOURCE_GEN_TASK_NAME" value="generateFirDebugSources" />
-        <option name="TEST_SOURCE_GEN_TASK_NAME" value="generateFirDebugAndroidTestSources" />
+        <option name="COMPILE_JAVA_TEST_TASK_NAME" value="compileFirDebugAndroidTestSources" />
+        <afterSyncTasks>
+          <task>generateFirDebugAndroidTestSources</task>
+          <task>generateFirDebugSources</task>
+        </afterSyncTasks>
         <option name="ALLOW_USER_CONFIGURATION" value="false" />
         <option name="MANIFEST_FILE_RELATIVE_PATH" value="/src/main/AndroidManifest.xml" />
         <option name="RES_FOLDER_RELATIVE_PATH" value="/src/main/res" />
@@ -23,7 +26,7 @@
       </configuration>
     </facet>
   </component>
-  <component name="NewModuleRootManager" inherit-compiler-output="false">
+  <component name="NewModuleRootManager" LANGUAGE_LEVEL="JDK_1_7" inherit-compiler-output="false">
     <output url="file://$MODULE_DIR$/build/intermediates/classes/fir/debug" />
     <output-test url="file://$MODULE_DIR$/build/intermediates/classes/androidTest/fir/debug" />
     <exclude-output />
@@ -89,6 +92,10 @@
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/dependency-cache" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/dex" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/dex-cache" />
+      <excludeFolder url="file://$MODULE_DIR$/build/intermediates/exploded-aar/com.amulyakhare/com.amulyakhare.textdrawable/1.0.1/jars" />
+      <excludeFolder url="file://$MODULE_DIR$/build/intermediates/exploded-aar/com.android.support/appcompat-v7/20.0.0/jars" />
+      <excludeFolder url="file://$MODULE_DIR$/build/intermediates/exploded-aar/com.android.support/multidex/1.0.1/jars" />
+      <excludeFolder url="file://$MODULE_DIR$/build/intermediates/exploded-aar/com.android.support/support-v4/20.0.0/jars" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/incremental" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/jacoco" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/javaResources" />
@@ -107,10 +114,10 @@
     <orderEntry type="jdk" jdkName="Android API 19 Platform" jdkType="Android SDK" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" exported="" name="butterknife-7.0.1" level="project" />
-    <orderEntry type="library" exported="" name="support-v4-20.0.0" level="project" />
-    <orderEntry type="library" exported="" name="multidex-1.0.1" level="project" />
-    <orderEntry type="library" exported="" name="com.amulyakhare.textdrawable-1.0.1" level="project" />
-    <orderEntry type="library" exported="" name="support-annotations-20.0.0" level="project" />
     <orderEntry type="library" exported="" name="appcompat-v7-20.0.0" level="project" />
+    <orderEntry type="library" exported="" name="com.amulyakhare.textdrawable-1.0.1" level="project" />
+    <orderEntry type="library" exported="" name="multidex-1.0.1" level="project" />
+    <orderEntry type="library" exported="" name="support-annotations-20.0.0" level="project" />
+    <orderEntry type="library" exported="" name="support-v4-20.0.0" level="project" />
   </component>
 </module>
